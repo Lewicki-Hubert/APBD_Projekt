@@ -9,9 +9,9 @@ namespace Projekt.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private readonly AuthenticationService _authenticationService;
+        private readonly IAuthenticationService _authenticationService;
 
-        public AuthenticationController(AuthenticationService authenticationService)
+        public AuthenticationController(IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
         }
@@ -23,7 +23,7 @@ namespace Projekt.Controllers
             await _authenticationService.SignUpAsync(signUpRequest, cancellationToken);
             return Ok("Successfully signed up");
         }
-        
+
         [AllowAnonymous]
         [HttpPost("signin")]
         public async Task<IActionResult> SignIn([FromBody] SignInRequest signInRequest, CancellationToken cancellationToken)

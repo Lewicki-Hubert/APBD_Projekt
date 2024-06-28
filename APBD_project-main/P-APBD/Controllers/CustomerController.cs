@@ -9,13 +9,13 @@ namespace Projekt.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly CustomerManagementService _customerService;
+        private readonly ICustomerManagementService _customerService;
 
-        public CustomerController(CustomerManagementService customerService)
+        public CustomerController(ICustomerManagementService customerService)
         {
             _customerService = customerService;
         }
-        
+
         [Authorize]
         [HttpPost("company")]
         public async Task<IActionResult> AddCompanyClient(CompanyAddRequest companyAddRequest, CancellationToken cancellationToken)
@@ -23,6 +23,7 @@ namespace Projekt.Controllers
             var newCompanyId = await _customerService.RegisterCorporateClient(companyAddRequest, cancellationToken);
             return Ok("Successfully added new company client, with the id of: " + newCompanyId);
         }
+
         [Authorize]
         [HttpPost("individual")]
         public async Task<IActionResult> AddIndividualClient(IndividualAddRequest individualAddRequest, CancellationToken cancellationToken)
@@ -46,7 +47,7 @@ namespace Projekt.Controllers
             await _customerService.UpdateCorporateClient(clientId, companyUpdateRequest, cancellationToken);
             return Ok("The company client with id: " + clientId + ", has been updated");
         }
-        
+
         [Authorize]
         [HttpPut("individual/{clientId:int}/edit")]
         public async Task<IActionResult> EditIndividualClient(int clientId, IndividualModifyRequest individualUpdateRequest, CancellationToken cancellationToken)

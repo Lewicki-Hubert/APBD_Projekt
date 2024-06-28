@@ -4,11 +4,11 @@ using Projekt.Models.Contract;
 
 namespace Projekt.Services
 {
-    public class AgreementService
+    public class AgreementService : IAgreementService
     {
-        private readonly AgreementRepository _agreementRepository;
+        private readonly IAgreementRepository _agreementRepository;
 
-        public AgreementService(AgreementRepository agreementRepository)
+        public AgreementService(IAgreementRepository agreementRepository)
         {
             _agreementRepository = agreementRepository;
         }

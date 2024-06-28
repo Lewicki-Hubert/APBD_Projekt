@@ -7,11 +7,11 @@ using Projekt.Errors;
 
 namespace Projekt.Services
 {
-    public class DiscountService
+    public class DiscountService : IDiscountService
     {
-        private readonly DiscountRepository _discountRepository;
+        private readonly IDiscountRepository _discountRepository;
 
-        public DiscountService(DiscountRepository discountRepository)
+        public DiscountService(IDiscountRepository discountRepository)
         {
             _discountRepository = discountRepository;
         }

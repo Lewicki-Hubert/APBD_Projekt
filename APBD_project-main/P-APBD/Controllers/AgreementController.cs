@@ -9,12 +9,12 @@ namespace Projekt.Controllers
     [ApiController]
     public class AgreementController : ControllerBase
     {
-        private readonly AgreementService _agreementService;
-        public AgreementController(AgreementService agreementService)
+        private readonly IAgreementService _agreementService;
+        public AgreementController(IAgreementService agreementService)
         {
             _agreementService = agreementService;
         }
-        
+
         [Authorize]
         [HttpPost("productAgreement")]
         public async Task<IActionResult> AddProductAgreement(ProductAgreementAddRequest productAgreementAddRequest, CancellationToken cancellationToken)

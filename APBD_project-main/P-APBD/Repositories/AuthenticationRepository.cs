@@ -8,7 +8,7 @@ using Projekt.Utilities;
 
 namespace Projekt.Repositories
 {
-    public class AuthenticationRepository
+    public class AuthenticationRepository : IAuthenticationRepository
     {
         private readonly AppDbContext _context;
 
@@ -34,7 +34,7 @@ namespace Projekt.Repositories
         public async Task AddUserAsync(SignUpRequest signUpRequest, CancellationToken cancellationToken)
         {
             var hashedPassword = PasswordSecurity.HashPassword(signUpRequest.UserPassword);
-            var newUser = new ApplicationUser()
+            var newUser = new ApplicationUser
             {
                 Username = signUpRequest.Username,
                 UserPassword = hashedPassword,

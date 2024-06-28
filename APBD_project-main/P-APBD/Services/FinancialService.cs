@@ -5,12 +5,12 @@ using Projekt.Models.Financial.Responses;
 
 namespace Projekt.Services
 {
-    public class FinancialService
+    public class FinancialService : IFinancialService
     {
-        private readonly FinancialRepository _financialRepository;
+        private readonly IFinancialRepository _financialRepository;
         private readonly IExchangeRateClient _exchangeRateClient;
 
-        public FinancialService(FinancialRepository financialRepository, IExchangeRateClient exchangeRateClient)
+        public FinancialService(IFinancialRepository financialRepository, IExchangeRateClient exchangeRateClient)
         {
             _financialRepository = financialRepository;
             _exchangeRateClient = exchangeRateClient;

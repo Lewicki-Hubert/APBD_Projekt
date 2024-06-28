@@ -1,7 +1,12 @@
-﻿namespace Projekt.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Projekt.Entities
 {
+    [Table("Companies")]
     public class Company
     {
+        [Key, ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public string CompanyName { get; set; }
         public string CompanyAddress { get; set; }

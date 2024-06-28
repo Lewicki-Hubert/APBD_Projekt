@@ -1,14 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projekt.Context;
 using Projekt.Entities;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using Projekt.Errors;
 
 namespace Projekt.Repositories
 {
-    public class DiscountRepository
+    public class DiscountRepository : IDiscountRepository
     {
         private readonly AppDbContext _context;
 
@@ -25,7 +22,8 @@ namespace Projekt.Repositories
         public async Task<Promotion> GetDiscountByIdAsync(int discountId, CancellationToken cancellationToken)
         {
             return await _context.Promotions
-                .FirstOrDefaultAsync(d => d.PromotionId == discountId, cancellationToken);
+                .FirstOrDefaultAsync(d => d.PromotionId == discountId, cancellationToken)
+                ?? throw new ResourceNotFoundException("Discount not found.");
         }
 
         public async Task<int> AddDiscountAsync(Promotion discount, CancellationToken cancellationToken)

@@ -34,6 +34,7 @@ namespace Projekt.Middleware
             string errorType;
             string message = exception.Message;
             string details = exception.StackTrace;
+            string innerExceptionMessage = exception.InnerException?.Message;
 
             (statusCode, errorType) = exception switch
             {
@@ -55,7 +56,8 @@ namespace Projekt.Middleware
             {
                 Error = errorType,
                 Message = message,
-                Details = details
+                Details = details,
+                InnerException = innerExceptionMessage
             };
 
             var jsonResponse = JsonSerializer.Serialize(response);
@@ -67,6 +69,7 @@ namespace Projekt.Middleware
             public string Error { get; set; }
             public string Message { get; set; }
             public string Details { get; set; }
+            public string InnerException { get; set; }
         }
     }
 }

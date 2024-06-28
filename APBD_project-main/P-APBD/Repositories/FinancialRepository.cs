@@ -1,18 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projekt.Context;
-using Projekt.Models.Payment.Request;
 using Projekt.Entities;
 using Projekt.Errors;
 using Projekt.Models.Financial.Responses;
+using Projekt.Models.Payment.Request;
 
 namespace Projekt.Repositories
 {
-    public class FinancialRepository
+    public class FinancialRepository : IFinancialRepository
     {
         private readonly AppDbContext _context;
-        private readonly AgreementRepository _agreementRepository;
+        private readonly IAgreementRepository _agreementRepository;
 
-        public FinancialRepository(AppDbContext context, AgreementRepository agreementRepository)
+        public FinancialRepository(AppDbContext context, IAgreementRepository agreementRepository)
         {
             _context = context;
             _agreementRepository = agreementRepository;

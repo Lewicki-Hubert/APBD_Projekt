@@ -1,7 +1,12 @@
-﻿namespace Projekt.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Projekt.Entities
 {
+    [Table("Promotions")]
     public class Promotion
     {
+        [Key]
         public int PromotionId { get; set; }
         public string PromotionName { get; set; }
         public int DiscountValue { get; set; }

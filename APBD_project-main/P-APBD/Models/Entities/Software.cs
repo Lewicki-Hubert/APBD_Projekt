@@ -1,7 +1,12 @@
-﻿namespace Projekt.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Projekt.Entities
 {
+    [Table("Softwares")]
     public class Software
     {
+        [Key]
         public int SoftwareId { get; set; }
         public string SoftwareName { get; set; }
         public string SoftwareDescription { get; set; }

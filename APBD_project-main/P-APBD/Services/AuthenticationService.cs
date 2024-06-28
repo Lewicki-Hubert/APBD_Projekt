@@ -9,12 +9,12 @@ using System.Text;
 
 namespace Projekt.Services
 {
-    public class AuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
-        private readonly AuthenticationRepository _userRepository;
+        private readonly IAuthenticationRepository _userRepository;
         private readonly IConfiguration _configuration;
 
-        public AuthenticationService(AuthenticationRepository userRepository, IConfiguration configuration)
+        public AuthenticationService(IAuthenticationRepository userRepository, IConfiguration configuration)
         {
             _userRepository = userRepository;
             _configuration = configuration;

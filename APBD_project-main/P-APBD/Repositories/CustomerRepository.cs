@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projekt.Context;
 using Projekt.Entities;
-using Projekt.Models.Client.Request;
 using Projekt.Enums;
 using Projekt.Errors;
+using Projekt.Models.Client.Request;
 
 namespace Projekt.Repositories
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly AppDbContext _context;
 

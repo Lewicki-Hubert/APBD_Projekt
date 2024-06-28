@@ -3,11 +3,11 @@ using Projekt.Repositories;
 
 namespace Projekt.Services
 {
-    public class CustomerManagementService
+    public class CustomerManagementService : ICustomerManagementService
     {
-        private readonly CustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public CustomerManagementService(CustomerRepository customerRepository)
+        public CustomerManagementService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }

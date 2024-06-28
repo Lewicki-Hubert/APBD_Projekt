@@ -6,12 +6,12 @@ using Projekt.Models.Contract;
 
 namespace Projekt.Repositories
 {
-    public class AgreementRepository
+    public class AgreementRepository : IAgreementRepository
     {
         private readonly AppDbContext _context;
-        private readonly CustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public AgreementRepository(CustomerRepository customerRepository, AppDbContext appDbContext)
+        public AgreementRepository(ICustomerRepository customerRepository, AppDbContext appDbContext)
         {
             _context = appDbContext;
             _customerRepository = customerRepository;

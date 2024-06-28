@@ -12,6 +12,7 @@ using Projekt.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -36,7 +37,7 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[] {}
+            new List<string>()
         }
     });
 });
@@ -46,18 +47,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddHttpClient<IExchangeRateClient, ExchangeRateClient>();
 
-builder.Services.AddScoped<AuthenticationRepository>();
-builder.Services.AddScoped<CustomerRepository>();
-builder.Services.AddScoped<AgreementRepository>();
-builder.Services.AddScoped<FinancialRepository>();
-builder.Services.AddScoped<DiscountRepository>();
+builder.Services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IAgreementRepository, AgreementRepository>();
+builder.Services.AddScoped<IFinancialRepository, FinancialRepository>();
+builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 
-builder.Services.AddScoped<AuthenticationService>();
-builder.Services.AddScoped<CustomerManagementService>();
-builder.Services.AddScoped<AgreementService>();
-builder.Services.AddScoped<FinancialService>();
-builder.Services.AddScoped<DiscountRepository>();
-builder.Services.AddScoped<DiscountService>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<ICustomerManagementService, CustomerManagementService>();
+builder.Services.AddScoped<IAgreementService, AgreementService>();
+builder.Services.AddScoped<IFinancialService, FinancialService>();
+builder.Services.AddScoped<IDiscountService, DiscountService>();
 
 builder.Services.AddAuthentication(options =>
 {
