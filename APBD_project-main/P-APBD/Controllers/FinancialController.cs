@@ -24,6 +24,14 @@ namespace Projekt.Controllers
         }
 
         [Authorize]
+        [HttpPost("productAgreementPayment/installments")]
+        public async Task<IActionResult> AddProductAgreementPaymentInInstallments(ProductAgreementPaymentRequest productAgreementPaymentRequest, int installments, CancellationToken cancellationToken)
+        {
+            var newPaymentId = await _financialService.RecordProductAgreementPaymentInInstallments(productAgreementPaymentRequest, installments, cancellationToken);
+            return Ok("Successfully added new product agreement payments in installments, with the id of: " + newPaymentId);
+        }
+
+        [Authorize]
         [HttpGet("totalActualIncome")]
         public async Task<IActionResult> GetTotalActualIncome([FromQuery] IncomeRequest incomeRequest, [FromQuery] int productId, [FromQuery] string? currency, CancellationToken cancellationToken)
         {

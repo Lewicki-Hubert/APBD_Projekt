@@ -10,5 +10,8 @@ namespace Projekt.Services
         Task<IncomeByProductResponse> CalculateProductActualIncome(IncomeRequest request, int productId, string? currency, CancellationToken cancellationToken);
         Task<TotalIncomeSummaryResponse> CalculateTotalForecastIncome(IncomeRequest request, string? currency, CancellationToken cancellationToken);
         Task<TotalIncomeSummaryResponse> CalculateTotalActualIncome(IncomeRequest request, string? currency, CancellationToken cancellationToken);
+        Task<int> RecordProductAgreementPaymentInInstallments(
+            ProductAgreementPaymentRequest productAgreementPaymentRequest, int installments,
+            CancellationToken cancellationToken);
     }
 }

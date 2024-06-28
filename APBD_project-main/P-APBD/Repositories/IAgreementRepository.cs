@@ -8,5 +8,6 @@ namespace Projekt.Repositories
         Task<int> AddProductAgreement(ProductAgreementAddRequest request, int supportDuration, CancellationToken cancellationToken);
         Task<SoftwareContract> GetProductAgreementById(int agreementId, CancellationToken cancellationToken);
         Task<List<SoftwareContract>> GetProductAgreements(int productId, DateTime startDate, DateTime endDate, CancellationToken cancellationToken);
+        Task UpdateProductAgreement(SoftwareContract agreement, CancellationToken cancellationToken);
     }
 }

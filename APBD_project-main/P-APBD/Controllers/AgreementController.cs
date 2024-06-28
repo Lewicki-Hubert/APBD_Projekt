@@ -22,5 +22,21 @@ namespace Projekt.Controllers
             var newAgreementId = await _agreementService.RegisterProductAgreement(productAgreementAddRequest, cancellationToken);
             return Ok("Successfully added a new product agreement, with the id of: " + newAgreementId);
         }
+
+        [Authorize]
+        [HttpPut("productAgreement/{agreementId}")]
+        public async Task<IActionResult> UpdateProductAgreement(int agreementId, ProductAgreementAddRequest productAgreementAddRequest, CancellationToken cancellationToken)
+        {
+            await _agreementService.UpdateProductAgreement(agreementId, productAgreementAddRequest, cancellationToken);
+            return Ok("Successfully updated the product agreement with id: " + agreementId);
+        }
+
+        [Authorize]
+        [HttpGet("productAgreement/{agreementId}/isActive")]
+        public async Task<IActionResult> IsAgreementActive(int agreementId, CancellationToken cancellationToken)
+        {
+            var isActive = await _agreementService.IsAgreementActive(agreementId, cancellationToken);
+            return Ok(new { AgreementId = agreementId, IsActive = isActive });
+        }
     }
 }

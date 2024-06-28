@@ -94,5 +94,10 @@ namespace Projekt.Repositories
                 .Where(e => e.SoftwareId == productId && e.StartDate < endDate && e.EndDate > startDate)
                 .ToListAsync(cancellationToken);
         }
+
+        public Task UpdateProductAgreement(SoftwareContract agreement, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

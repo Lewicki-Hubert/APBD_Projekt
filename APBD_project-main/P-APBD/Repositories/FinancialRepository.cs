@@ -64,8 +64,8 @@ namespace Projekt.Repositories
         public async Task<IncomeByProductResponse> CalculateProductActualIncome(IncomeRequest request, int productId, CancellationToken cancellationToken)
         {
             var product = await _context.Softwares
-                .FirstOrDefaultAsync(e => e.SoftwareId == productId, cancellationToken)
-                ?? throw new ResourceNotFoundException("Product does not exist");
+                              .FirstOrDefaultAsync(e => e.SoftwareId == productId, cancellationToken)
+                          ?? throw new ResourceNotFoundException("Product does not exist");
 
             decimal totalActualIncome = 0m;
             var agreements = await _agreementRepository.GetProductAgreements(product.SoftwareId, request.StartDate, request.EndDate, cancellationToken);
@@ -86,6 +86,7 @@ namespace Projekt.Repositories
                 TotalIncome = totalActualIncome
             };
         }
+
 
         public async Task<TotalIncomeSummaryResponse> CalculateTotalForecastIncome(IncomeRequest request, CancellationToken cancellationToken)
         {
@@ -148,13 +149,48 @@ namespace Projekt.Repositories
 
             if (totalPayments >= agreement.TotalCost)
             {
-                throw new DuplicatePurchaseException("This agreement has already been fully paid");
+                throw new DuplicatePurchaseException("This agreement has already been fully paid.");
             }
 
             if (totalPayments + paymentValue > agreement.TotalCost)
             {
-                throw new ArgumentException("The total payment for this agreement exceeds the total price");
+                throw new ArgumentException("The total payment for this agreement exceeds the total price.");
+            }
+            
+            if (totalPayments + paymentValue == agreement.TotalCost)
+            {
+                agreement.IsActive = true;
+                _context.SoftwareContracts.Update(agreement);
             }
         }
+
+        
+        public async Task<int> AddProductAgreementPaymentInInstallments(ProductAgreementPaymentRequest request, int installments, CancellationToken cancellationToken)
+        {
+            var productAgreement = await _agreementRepository.GetProductAgreementById(request.AgreementId, cancellationToken);
+
+            ValidatePaymentDate(request.PaymentDate, productAgreement.StartDate, productAgreement.EndDate);
+
+            decimal installmentAmount = request.Amount / installments;
+
+            for (int i = 0; i < installments; i++)
+            {
+                var newPayment = new ContractPayment
+                {
+                    ContractId = request.AgreementId,
+                    PaymentDescription = request.PaymentDescription,
+                    PaymentDate = request.PaymentDate.AddMonths(i),
+                    Amount = installmentAmount
+                };
+
+                await _context.ContractPayments.AddAsync(newPayment, cancellationToken);
+            }
+
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return productAgreement.ContractId;
+        }
+
+        
     }
 }

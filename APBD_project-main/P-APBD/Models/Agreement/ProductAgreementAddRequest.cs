@@ -26,8 +26,14 @@ namespace Projekt.Models.Agreement
         {
             if (EndDate < StartDate)
             {
-                throw new ArgumentException("It is not possible");
+                throw new ArgumentException("End date cannot be earlier than start date.");
+            }
+            int dayDifference = (EndDate - StartDate).Days;
+            if (dayDifference < 3 || dayDifference > 30)
+            {
+                throw new ArgumentException("The time difference between dates must be between 3 and 30 days.");
             }
         }
+        
     }
 }

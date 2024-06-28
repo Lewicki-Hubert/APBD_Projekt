@@ -17,7 +17,9 @@ namespace Projekt.Models.Entities
         public int SupportDuration { get; set; }
         public int? PromotionId { get; set; }
         public int? DiscountValue { get; set; }
-        public decimal TotalCost { get; set; }
+        public decimal TotalCost { get; set; } 
+        public bool IsActive { get; set; }
+        public string Updates { get; set; }
         
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
