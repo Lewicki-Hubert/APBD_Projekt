@@ -20,4 +20,12 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\APBD_project-main\P-APBD\Projekt.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\APBD_project-main\P-APBD\Projekt.csproj" />
+    </ItemGroup>
+
 </Project>
