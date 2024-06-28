@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projekt.Context;
-using Projekt.Entities;
-using Projekt.Errors;
+using Projekt.Exceptions;
+using Projekt.Models.Entities;
+using Projekt.Models.Financial.Request;
 using Projekt.Models.Financial.Responses;
-using Projekt.Models.Payment.Request;
 
 namespace Projekt.Repositories
 {

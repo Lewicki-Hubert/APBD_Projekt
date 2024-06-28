@@ -1,4 +1,4 @@
-﻿using Projekt.Models.Login;
+﻿using Projekt.Models.Authentication;
 
 namespace Projekt.Services
 {

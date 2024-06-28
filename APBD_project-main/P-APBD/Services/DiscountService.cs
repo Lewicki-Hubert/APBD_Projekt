@@ -1,9 +1,9 @@
-﻿using Projekt.Entities;
-using Projekt.Repositories;
+﻿using Projekt.Repositories;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Projekt.Errors;
+using Projekt.Exceptions;
+using Projekt.Models.Entities;
 
 namespace Projekt.Services
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Projekt.Models.Login;
+using Projekt.Models.Authentication;
 using Projekt.Services;
 
 namespace Projekt.Controllers

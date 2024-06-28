@@ -1,4 +1,4 @@
-﻿using Projekt.Entities;
+﻿using Projekt.Models.Entities;
 
 namespace Projekt.Repositories
 {

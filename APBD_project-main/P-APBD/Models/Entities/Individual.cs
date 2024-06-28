@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Projekt.Entities
+namespace Projekt.Models.Entities
 {
     [Table("Individuals")]
     public class Individual
@@ -14,6 +14,8 @@ namespace Projekt.Entities
         public string? EmailAddress { get; set; }
         public string? MobileNumber { get; set; }
         public string? NationalId { get; set; }
+        
+        [ForeignKey("SoftwareId")] 
         public virtual Customer Customer { get; set; }
     }
 }

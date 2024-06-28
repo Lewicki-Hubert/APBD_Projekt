@@ -1,4 +1,4 @@
-﻿using Projekt.Models.Client.Request;
+﻿using Projekt.Models.Customer.Request;
 
 namespace Projekt.Services
 {

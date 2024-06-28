@@ -1,5 +1,5 @@
-﻿using Projekt.Entities;
-using Projekt.Models.Login;
+﻿using Projekt.Models.Authentication;
+using Projekt.Models.Entities;
 
 namespace Projekt.Repositories
 {

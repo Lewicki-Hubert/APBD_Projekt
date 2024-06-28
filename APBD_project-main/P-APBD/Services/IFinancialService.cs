@@ -1,5 +1,5 @@
-﻿using Projekt.Models.Financial.Responses;
-using Projekt.Models.Payment.Request;
+﻿using Projekt.Models.Financial.Request;
+using Projekt.Models.Financial.Responses;
 
 namespace Projekt.Services
 {

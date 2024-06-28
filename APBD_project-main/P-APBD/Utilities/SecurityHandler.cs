@@ -1,4 +1,4 @@
-﻿using Projekt.Errors;
+﻿using Projekt.Exceptions;
 
 namespace Projekt.Utilities
 {

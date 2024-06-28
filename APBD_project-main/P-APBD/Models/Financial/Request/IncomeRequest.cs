@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Projekt.Models.Payment.Request
+namespace Projekt.Models.Financial.Request
 {
     public class IncomeRequest
     {

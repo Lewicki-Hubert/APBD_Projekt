@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projekt.Context;
-using Projekt.Entities;
-using Projekt.Enums;
-using Projekt.Errors;
-using Projekt.Models.Client.Request;
+using Projekt.Exceptions;
+using Projekt.Models.Base;
+using Projekt.Models.Customer.Request;
+using Projekt.Models.Entities;
 
 namespace Projekt.Repositories
 {

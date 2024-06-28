@@ -1,4 +1,4 @@
-﻿namespace Projekt.Enums
+﻿namespace Projekt.Models.Base
 {
     public enum CustomerType
     {

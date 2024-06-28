@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Projekt.Models.Login
+namespace Projekt.Models.Authentication
 {
     public class SignInRequest
     {

@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Text.Json;
-using Projekt.Errors;
+using Projekt.Exceptions;
 
 namespace Projekt.Middleware
 {

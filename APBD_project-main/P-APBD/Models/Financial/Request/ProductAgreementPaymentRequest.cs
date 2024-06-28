@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Projekt.Models.Payment.Request
+namespace Projekt.Models.Financial.Request
 {
     public class ProductAgreementPaymentRequest
     {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Projekt.Entities;
-using Projekt.Enums;
+using Projekt.Models.Entities;
 
 namespace Projekt.Context
 {

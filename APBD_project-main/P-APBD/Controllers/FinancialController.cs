@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Projekt.Models.Payment.Request;
 using Microsoft.AspNetCore.Authorization;
+using Projekt.Models.Financial.Request;
 using Projekt.Services;
 
 namespace Projekt.Controllers

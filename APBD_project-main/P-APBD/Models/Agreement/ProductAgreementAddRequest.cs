@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Projekt.Models.Contract
+namespace Projekt.Models.Agreement
 {
     public class ProductAgreementAddRequest
     {

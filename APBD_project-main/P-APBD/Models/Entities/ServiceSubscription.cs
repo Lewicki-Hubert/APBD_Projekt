@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Projekt.Entities
+namespace Projekt.Models.Entities
 {
     [Table("ServiceSubscriptions")]
     public class ServiceSubscription
@@ -12,6 +12,7 @@ namespace Projekt.Entities
         public string SubscriptionName { get; set; }
         public int RenewalPeriodInMonths { get; set; }
         public decimal SubscriptionCost { get; set; }
+        
         [ForeignKey("SoftwareId")]
         public virtual Software Software { get; set; }
     }

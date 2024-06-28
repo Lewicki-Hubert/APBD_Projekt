@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Projekt.Models.Client.Request
+namespace Projekt.Models.Customer.Request
 {
     public class IndividualModifyRequest
     {

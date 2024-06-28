@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Projekt.Enums;
+using Projekt.Models.Base;
 
-namespace Projekt.Entities
+namespace Projekt.Models.Entities
 {
     [Table("Customers")]
     public class Customer

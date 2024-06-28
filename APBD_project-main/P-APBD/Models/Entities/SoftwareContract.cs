@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Projekt.Entities
+namespace Projekt.Models.Entities
 {
     [Table("SoftwareContracts")]
     public class SoftwareContract
@@ -18,10 +18,13 @@ namespace Projekt.Entities
         public int? PromotionId { get; set; }
         public int? DiscountValue { get; set; }
         public decimal TotalCost { get; set; }
+        
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
+        
         [ForeignKey("SoftwareId")]
         public virtual Software Software { get; set; }
+        
         [ForeignKey("PromotionId")]
         public virtual Promotion? Promotion { get; set; }
         public virtual ICollection<ContractPayment> ContractPayments { get; set; }

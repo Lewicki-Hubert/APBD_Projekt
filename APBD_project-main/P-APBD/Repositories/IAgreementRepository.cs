@@ -1,5 +1,5 @@
-﻿using Projekt.Entities;
-using Projekt.Models.Contract;
+﻿using Projekt.Models.Agreement;
+using Projekt.Models.Entities;
 
 namespace Projekt.Repositories
 {

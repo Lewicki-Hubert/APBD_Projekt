@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projekt.Context;
-using Projekt.Entities;
-using Projekt.Errors;
+using Projekt.Exceptions;
+using Projekt.Models.Entities;
 
 namespace Projekt.Repositories
 {

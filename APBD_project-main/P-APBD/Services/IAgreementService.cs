@@ -1,4 +1,4 @@
-﻿using Projekt.Models.Contract;
+﻿using Projekt.Models.Agreement;
 
 namespace Projekt.Services
 {

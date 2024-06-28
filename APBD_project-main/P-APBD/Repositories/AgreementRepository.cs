@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projekt.Context;
-using Projekt.Entities;
-using Projekt.Errors;
-using Projekt.Models.Contract;
+using Projekt.Exceptions;
+using Projekt.Models.Agreement;
+using Projekt.Models.Entities;
 
 namespace Projekt.Repositories
 {

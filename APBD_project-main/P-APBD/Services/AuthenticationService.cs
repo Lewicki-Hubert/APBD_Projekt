@@ -1,11 +1,11 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using Projekt.Entities;
-using Projekt.Models.Login;
 using Projekt.Repositories;
 using Projekt.Utilities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Projekt.Models.Authentication;
+using Projekt.Models.Entities;
 
 namespace Projekt.Services
 {

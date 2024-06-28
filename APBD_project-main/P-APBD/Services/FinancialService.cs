@@ -1,6 +1,6 @@
-﻿using Projekt.Models.Payment.Request;
-using Projekt.Repositories;
+﻿using Projekt.Repositories;
 using Projekt.ApiClients.Interfaces;
+using Projekt.Models.Financial.Request;
 using Projekt.Models.Financial.Responses;
 
 namespace Projekt.Services

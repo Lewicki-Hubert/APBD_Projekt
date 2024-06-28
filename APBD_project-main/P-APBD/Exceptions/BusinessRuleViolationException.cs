@@ -1,4 +1,4 @@
-﻿namespace Projekt.Errors
+﻿namespace Projekt.Exceptions
 {
     public class BusinessRuleViolationException : Exception
     {
